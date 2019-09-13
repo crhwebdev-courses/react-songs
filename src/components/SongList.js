@@ -8,7 +8,12 @@ class SongList extends Component {
       return (
         <div className="item" key={song.title}>
           <div className="right floated content">
-            <button className="ui button primary">Select</button>
+            <button
+              className="ui button primary"
+              onClick={() => this.props.selectSong(song)}
+            >
+              Select
+            </button>
           </div>
           <div className="content">{song.title}</div>
         </div>
@@ -17,16 +22,26 @@ class SongList extends Component {
   }
 
   render() {
-    return <div className="ui divided list">{this.renderList()}</div>;
+    return (
+      <div className="ui divided list">
+        {this.renderList()}
+        <p>
+          Selected Song:{' '}
+          {this.props.selectedSong ? this.props.selectedSong.title : 'none'}
+        </p>
+      </div>
+    );
   }
 }
+
 const mapStateToProps = state => {
   return {
-    songs: state.songs
+    songs: state.songs,
+    selectedSong: state.selectedSong
   };
 };
 
 export default connect(
   mapStateToProps,
-  null
+  { selectSong }
 )(SongList);
