@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-class SongDetail extends Component {
-  render() {
-    return <div>SongDetail</div>;
-  }
-}
+const SongDetail = props => {
+  return <div>SongDetail</div>;
+};
 
 export default SongDetail;
