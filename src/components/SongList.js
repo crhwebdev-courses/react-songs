@@ -22,22 +22,13 @@ class SongList extends Component {
   }
 
   render() {
-    return (
-      <div className="ui divided list">
-        {this.renderList()}
-        <p>
-          Selected Song:{' '}
-          {this.props.selectedSong ? this.props.selectedSong.title : 'none'}
-        </p>
-      </div>
-    );
+    return <div className="ui divided list">{this.renderList()}</div>;
   }
 }
 
 const mapStateToProps = state => {
   return {
-    songs: state.songs,
-    selectedSong: state.selectedSong
+    songs: state.songs
   };
 };
 
